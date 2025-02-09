@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+       <link href="{{fontLink}}" rel="stylesheet">
+       <link href="{{secondaryFontLink}}" rel="stylesheet">
+      
+
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['{{settings.fonts.primary}}', 'Roboto', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['{{settings.fonts.secondary}}', 'system-ui', 'sans-serif'],
+                body: ['{{settings.fonts.secondary}}', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: {{settings.fonts.primary}}, system-ui, sans-serif;
+        }
+        body {
+          font-family: {{settings.fonts.secondary}}, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Header -->
+      <header class="relative z-50 bg-white dark:bg-gray-900">
+        <!-- Header content goes here -->
+      </header>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+
+   </body>
+</html><element id="2a59d9dd-0f93-4595-8829-00d3c006ad46" data-section-id="2a59d9dd-0f93-4595-8829-00d3c006ad46">
+
+
+<div id="root">
+  <header id="header" class="bg-white shadow-sm fixed w-full top-0 z-50">
+    <div class="container mx-auto px-4">
+      <!-- Top Bar -->
+      <div class="hidden md:flex justify-between items-center py-2 text-sm border-b">
+        <div class="flex items-center space-x-4">
+          <a href="#" class="text-gray-600 hover:text-blue-600">
+            <i class="fas fa-phone-alt"></i>
+            <span class="ml-1">1-800-123-4567</span>
+          </a>
+          <a href="#" class="text-gray-600 hover:text-blue-600">
+            <i class="fas fa-envelope"></i>
+            <span class="ml-1">support@electronics.com</span>
+          </a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="#" class="text-gray-600 hover:text-blue-600">Track Order</a>
+          <a href="#" class="text-gray-600 hover:text-blue-600">Store Locator</a>
+        </div>
+      </div>
+
+      <!-- Main Header -->
+      <div class="py-4">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="#" class="text-2xl font-bold text-blue-600">ElectroStore</a>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="hidden md:flex flex-1 max-w-xl mx-8">
+            <div class="relative w-full">
+              <input type="text" placeholder="Search for products..." class="w-full pl-4 pr-10 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+              <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                <i class="fas fa-search text-gray-400"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Icons -->
+          <div class="flex items-center space-x-6">
+            <a href="#" class="text-gray-700 hover:text-blue-600">
+              <i class="fas fa-user text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">
+              <i class="fas fa-heart text-xl"></i>
+            </a>
+            <a href="#" class="relative text-gray-700 hover:text-blue-600">
+              <i class="fas fa-shopping-cart text-xl"></i>
+              <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center justify-between mt-4">
+          <div class="flex space-x-8">
+            <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Smartphones</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Laptops</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Tablets</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Accessories</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Deals</a>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden absolute right-4 top-4">
+          <i class="fas fa-bars text-2xl text-gray-700"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="md:hidden px-4 pb-4">
+      <div class="relative">
+        <input type="text" placeholder="Search for products..." class="w-full pl-4 pr-10 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
+        <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+          <i class="fas fa-search text-gray-400"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Spacer for fixed header -->
+  <div class="h-[172px] md:h-[156px]"></div>
+</div>
+</element><element id="49f77311-b857-497a-a30f-a04be68e1506" data-section-id="49f77311-b857-497a-a30f-a04be68e1506">
+
+
+<div id="root">
+  <section id="productGrid" class="container mx-auto px-4 py-8">
+    <!-- Breadcrumbs -->
+    <div class="flex items-center text-sm text-gray-600 mb-6">
+      <a href="#" class="hover:text-blue-600">Home</a>
+      <span class="mx-2">/</span>
+      <a href="#" class="hover:text-blue-600">Electronics</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-400">All Products</span>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Product Card 1 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="p-4">
+          <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+            <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+              <i class="fas fa-mobile-alt text-4xl text-gray-400"></i>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-lg font-semibold text-gray-800">iPhone 13 Pro</h3>
+            <p class="mt-2 text-sm text-gray-600 line-clamp-2">6.1-inch Super Retina XDR display with ProMotion. Pro camera system.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-xl font-bold text-blue-600">$999</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="p-4">
+          <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+            <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+              <i class="fas fa-laptop text-4xl text-gray-400"></i>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-lg font-semibold text-gray-800">MacBook Pro M1</h3>
+            <p class="mt-2 text-sm text-gray-600 line-clamp-2">13-inch Retina display, 8-core CPU, 16GB unified memory.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-xl font-bold text-blue-600">$1,299</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="p-4">
+          <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+            <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+              <i class="fas fa-tablet-alt text-4xl text-gray-400"></i>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-lg font-semibold text-gray-800">iPad Air</h3>
+            <p class="mt-2 text-sm text-gray-600 line-clamp-2">10.9-inch Liquid Retina display, A14 Bionic chip.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-xl font-bold text-blue-600">$599</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="p-4">
+          <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+            <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+              <i class="fas fa-headphones text-4xl text-gray-400"></i>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-lg font-semibold text-gray-800">AirPods Pro</h3>
+            <p class="mt-2 text-sm text-gray-600 line-clamp-2">Active Noise Cancellation, Transparency mode, Spatial audio.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-xl font-bold text-blue-600">$249</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 5 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="p-4">
+          <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+            <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+              <i class="fas fa-watch text-4xl text-gray-400"></i>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-lg font-semibold text-gray-800">Apple Watch Series 7</h3>
+            <p class="mt-2 text-sm text-gray-600 line-clamp-2">Always-On Retina display, Blood oxygen sensor, ECG app.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-xl font-bold text-blue-600">$399</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 6 -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="p-4">
+          <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden">
+            <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center">
+              <i class="fas fa-tv text-4xl text-gray-400"></i>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h3 class="text-lg font-semibold text-gray-800">Smart TV 4K</h3>
+            <p class="mt-2 text-sm text-gray-600 line-clamp-2">65-inch OLED display, HDR, Smart Hub, Voice control.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-xl font-bold text-blue-600">$1,499</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="f84433a5-8321-4ea5-a1da-f2e5c1891f98" data-section-id="f84433a5-8321-4ea5-a1da-f2e5c1891f98">
+
+
+                
+<div id="root">
+  <aside id="filterSidebar" class="w-64 bg-white shadow-md p-6 h-screen fixed left-0 top-0 overflow-y-auto hidden md:block transform transition-transform duration-300 ease-in-out">
+    <div class="space-y-6" id="el-4vkrpryw">
+      <!-- Price Range -->
+      <div id="el-p9cu2yn6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4" id="el-oxn84zs5">Price Range</h3>
+        <div class="space-y-3" id="el-c18py871">
+          <div class="flex items-center" id="el-2tip6jt2">
+            <input type="range" min="0" max="2000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" id="el-k3xuyrs3">
+          </div>
+          <div class="flex items-center justify-between" id="el-jsyz6tjb">
+            <input type="number" placeholder="Min" class="w-20 px-2 py-1 border rounded-md" id="el-1ax3e3e4">
+            <span class="text-gray-500" id="el-y63k5w8x">-</span>
+            <input type="number" placeholder="Max" class="w-20 px-2 py-1 border rounded-md" id="el-48miocnu">
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div id="el-qma6m2hk">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4" id="el-z3zf2laz">Categories</h3>
+        <div class="space-y-3" id="el-yzuqwtdz">
+          <label class="flex items-center space-x-3" id="el-nxtmonuk">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-nl1gnpdl">
+            <span class="text-gray-700" id="el-an6p62tu">Smartphones (24)</span>
+          </label>
+          <label class="flex items-center space-x-3" id="el-719brp6h">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-0tved1cm">
+            <span class="text-gray-700" id="el-3an791vn">Laptops (18)</span>
+          </label>
+          <label class="flex items-center space-x-3" id="el-mzrwpyad">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-5lnfo9hb">
+            <span class="text-gray-700" id="el-24xsrtbu">Tablets (12)</span>
+          </label>
+          <label class="flex items-center space-x-3" id="el-pyqxuzqp">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-0hfktmxo">
+            <span class="text-gray-700" id="el-h76zn7v0">Accessories (36)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Brands -->
+      <div id="el-z5xmjyc0">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4" id="el-1h3lq4sj">Brands</h3>
+        <div class="space-y-3" id="el-8calph8c">
+          <label class="flex items-center space-x-3" id="el-a07c0fty">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-kg62gp0j">
+            <span class="text-gray-700" id="el-jmkehcnf">Apple</span>
+          </label>
+          
+          <label class="flex items-center space-x-3" id="el-hpoam7sr">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-r0kwau25">
+            <span class="text-gray-700" id="el-rpjt1ia1">Sony</span>
+          </label>
+          <label class="flex items-center space-x-3" id="el-kxx4qo2t">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-muknrpud">
+            <span class="text-gray-700" id="el-sde270uk">Dell</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Ratings -->
+      <div id="el-5wjjj521" class="">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4" id="el-vwnjmep9">Ratings</h3>
+        <div class="space-y-3" id="el-wdrva3mw">
+          <label class="flex items-center space-x-3" id="el-ysbmjofr">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-8kz12hk5">
+            <div class="flex text-yellow-400" id="el-99kzx0sl">
+              <i class="fas fa-star" id="el-3jrdmper"></i>
+              <i class="fas fa-star" id="el-630zuknm"></i>
+              <i class="fas fa-star" id="el-kzekxe9x"></i>
+              <i class="fas fa-star" id="el-9szhkdlp"></i>
+              <i class="fas fa-star" id="el-6xmvh49w"></i>
+              <span class="ml-2 text-gray-700" id="el-l3t87rrj">(5)</span>
+            </div>
+          </label>
+          <label class="flex items-center space-x-3" id="el-of7xsg1l">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-jflajune">
+            <div class="flex text-yellow-400" id="el-pduyxhvx">
+              <i class="fas fa-star" id="el-3omkhr08"></i>
+              <i class="fas fa-star" id="el-bg613pld"></i>
+              <i class="fas fa-star" id="el-w8uv44sd"></i>
+              <i class="fas fa-star" id="el-3jbd8i5v"></i>
+              <i class="far fa-star" id="el-qyr78f2x"></i>
+              <span class="ml-2 text-gray-700" id="el-ia3u04i9">(4)</span>
+            </div>
+          </label>
+          <label class="flex items-center space-x-3" id="el-utxp04y6">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="el-1916hmvp">
+            <div class="flex text-yellow-400" id="el-yjo85460">
+              <i class="fas fa-star" id="el-25br7why"></i>
+              <i class="fas fa-star" id="el-h2femo24"></i>
+              <i class="fas fa-star" id="el-unebt03b"></i>
+              <i class="far fa-star" id="el-4wgq8tzt"></i>
+              <i class="far fa-star" id="el-eq0bn7ac"></i>
+              <span class="ml-2 text-gray-700" id="el-o8hnq2bu">(3)</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Apply Filters Button -->
+      <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300" id="el-634n3e2o">
+        Apply Filters
+      </button>
+
+      <!-- Reset Filters -->
+      <button class="w-full text-gray-600 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300" id="el-kpeke7r2">
+        Reset Filters
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mobile Filter Button -->
+  <button class="md:hidden fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg z-50" id="el-t1pxuope">
+    <i class="fas fa-filter" id="el-qymwkzs0"></i>
+  </button>
+</div>
+
+              </element><element id="e8ee8a08-30fb-4794-a7fd-c0c32dbc5c67" data-section-id="e8ee8a08-30fb-4794-a7fd-c0c32dbc5c67">
+
+
+<div id="root">
+  <section id="searchSort" class="bg-white shadow-sm mb-6 sticky top-[172px] md:top-[156px] z-40">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+        <!-- Results Count -->
+        <div class="text-gray-600">
+          Showing <span class="font-semibold">1-12</span> of <span class="font-semibold">48</span> results
+        </div>
+
+        <!-- Sort and View Options -->
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+          <!-- Sort Dropdown -->
+          <div class="relative">
+            <select class="appearance-none bg-white border rounded-lg px-4 py-2 pr-8 focus:outline-none focus:border-blue-500 cursor-pointer w-full md:w-auto">
+              <option value="">Sort by: Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest Arrivals</option>
+              <option value="popular">Most Popular</option>
+            </select>
+            <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+              <i class="fas fa-chevron-down text-gray-400"></i>
+            </div>
+          </div>
+
+          <!-- View Options -->
+          <div class="flex space-x-2 items-center">
+            <button class="p-2 rounded-lg hover:bg-gray-100 text-blue-600">
+              <i class="fas fa-th-large"></i>
+            </button>
+            <button class="p-2 rounded-lg hover:bg-gray-100 text-gray-400">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+
+          <!-- Items Per Page -->
+          <div class="relative">
+            <select class="appearance-none bg-white border rounded-lg px-4 py-2 pr-8 focus:outline-none focus:border-blue-500 cursor-pointer w-full md:w-auto">
+              <option value="12">Show: 12</option>
+              <option value="24">Show: 24</option>
+              <option value="36">Show: 36</option>
+              <option value="48">Show: 48</option>
+            </select>
+            <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+              <i class="fas fa-chevron-down text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filters -->
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800">
+          Price: $100 - $500
+          <button class="ml-2 text-blue-600 hover:text-blue-800">
+            <i class="fas fa-times"></i>
+          </button>
+        </span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800">
+          Category: Smartphones
+          <button class="ml-2 text-blue-600 hover:text-blue-800">
+            <i class="fas fa-times"></i>
+          </button>
+        </span>
+        <button class="text-sm text-blue-600 hover:text-blue-800">
+          Clear all filters
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="806fa247-602c-4943-b69a-399cdb08c815" data-section-id="806fa247-602c-4943-b69a-399cdb08c815">
+
+
+<div id="root">
+  <section id="pagination" class="container mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row items-center justify-between">
+      <!-- Page Info -->
+      <div class="text-sm text-gray-600 mb-4 md:mb-0">
+        Showing page 1 of 4
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="flex items-center space-x-2">
+        <button class="px-4 py-2 border rounded-lg text-gray-400 cursor-not-allowed">
+          <i class="fas fa-chevron-left mr-2"></i>
+          Previous
+        </button>
+
+        <div class="hidden md:flex space-x-2">
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600 text-white">
+            1
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-700">
+            2
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-700">
+            3
+          </button>
+          <button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-700">
+            4
+          </button>
+        </div>
+
+        <button class="px-4 py-2 border rounded-lg hover:bg-gray-100 text-gray-700">
+          Next
+          <i class="fas fa-chevron-right ml-2"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Page Selector -->
+      <div class="md:hidden w-full mt-4">
+        <select class="w-full p-2 border rounded-lg focus:outline-none focus:border-blue-500">
+          <option value="1">Page 1</option>
+          <option value="2">Page 2</option>
+          <option value="3">Page 3</option>
+          <option value="4">Page 4</option>
+        </select>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="37d34b2a-a47c-45b1-a082-11d0bee30cf5" data-section-id="37d34b2a-a47c-45b1-a082-11d0bee30cf5">
+
+
+<div id="root">
+  <section id="relatedProducts" class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Related Products</h2>
+    
+    <!-- Scrollable Container -->
+    <div class="relative">
+      <!-- Scroll Buttons -->
+      <button class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100 hidden md:block">
+        <i class="fas fa-chevron-left text-gray-600"></i>
+      </button>
+      <button class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100 hidden md:block">
+        <i class="fas fa-chevron-right text-gray-600"></i>
+      </button>
+
+      <!-- Products Scroll Container -->
+      <div class="flex overflow-x-auto gap-6 pb-4 no-scrollbar">
+        <!-- Product Card 1 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="p-4">
+            <div class="bg-gray-200 h-40 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-headphones text-4xl text-gray-400"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Wireless Headphones</h3>
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">Premium noise-canceling wireless headphones with long battery life.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-lg font-bold text-blue-600">$199</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="p-4">
+            <div class="bg-gray-200 h-40 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-mouse text-4xl text-gray-400"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Gaming Mouse</h3>
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">High-precision gaming mouse with customizable RGB lighting.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-lg font-bold text-blue-600">$79</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="p-4">
+            <div class="bg-gray-200 h-40 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-keyboard text-4xl text-gray-400"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Mechanical Keyboard</h3>
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">Professional mechanical keyboard with Cherry MX switches.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-lg font-bold text-blue-600">$129</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="p-4">
+            <div class="bg-gray-200 h-40 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-microphone text-4xl text-gray-400"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">USB Microphone</h3>
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">Professional USB condenser microphone for streaming and podcasting.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-lg font-bold text-blue-600">$149</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="25f4cfe9-7495-42f9-8556-994976489cde" data-section-id="25f4cfe9-7495-42f9-8556-994976489cde">
+
+
+<div id="root">
+  <section id="newsletter" class="bg-blue-600 py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="mb-8">
+          <i class="fas fa-envelope-open-text text-white text-4xl mb-4"></i>
+          <h2 class="text-3xl font-bold text-white mb-4">Stay Updated with Latest Tech</h2>
+          <p class="text-blue-100 mb-6">Subscribe to our newsletter and get exclusive deals, new product alerts, and tech news delivered to your inbox.</p>
+        </div>
+        
+        <form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+          <input 
+            type="email" 
+            placeholder="Enter your email address" 
+            class="flex-1 px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+          >
+          <button 
+            type="submit" 
+            class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300"
+          >
+            Subscribe
+          </button>
+        </form>
+        
+        <p class="text-blue-100 text-sm mt-4">
+          By subscribing, you agree to our 
+          <a href="#" class="text-white underline hover:text-blue-100">Privacy Policy</a>
+          and
+          <a href="#" class="text-white underline hover:text-blue-100">Terms of Service</a>
+        </p>
+        
+        <div class="flex items-center justify-center space-x-6 mt-8">
+          <i class="fab fa-facebook text-white text-2xl hover:text-blue-100 cursor-pointer"></i>
+          <i class="fab fa-twitter text-white text-2xl hover:text-blue-100 cursor-pointer"></i>
+          <i class="fab fa-instagram text-white text-2xl hover:text-blue-100 cursor-pointer"></i>
+          <i class="fab fa-youtube text-white text-2xl hover:text-blue-100 cursor-pointer"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</element><element id="1d65790a-e77f-4f4b-851e-b94082274bb1" data-section-id="1d65790a-e77f-4f4b-851e-b94082274bb1">
+
+<div id="root">
+  <footer id="footer" class="bg-gray-900 text-gray-300">
+    <!-- Main Footer -->
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">ElectroStore</h3>
+          <p class="text-gray-400 mb-4">Your one-stop destination for premium electronics and accessories.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Categories</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white">Smartphones</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Laptops</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Tablets</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Accessories</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white">Wearables</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Contact Us</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-3"></i>
+              <span>123 Tech Street, Digital City, 12345</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3"></i>
+              <span>1-800-123-4567</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3"></i>
+              <span>support@electrostore.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Methods -->
+    <div class="border-t border-gray-800">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="text-sm">We Accept</p>
+            <div class="flex space-x-4 mt-2">
+              <i class="fab fa-cc-visa text-2xl"></i>
+              <i class="fab fa-cc-mastercard text-2xl"></i>
+              <i class="fab fa-cc-amex text-2xl"></i>
+              <i class="fab fa-cc-paypal text-2xl"></i>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <img src="https://placehold.co/40x40" alt="SSL Security" class="h-10">
+            <img src="https://placehold.co/40x40" alt="Trust Badge" class="h-10">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="bg-gray-950 py-4">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-sm text-gray-400">&copy; 2024 ElectroStore. All rights reserved.</p>
+          <div class="mt-2 md:mt-0">
+            <a href="#" class="text-sm text-gray-400 hover:text-white mx-2">Terms</a>
+            <a href="#" class="text-sm text-gray-400 hover:text-white mx-2">Privacy</a>
+            <a href="#" class="text-sm text-gray-400 hover:text-white mx-2">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div></element>
+            <div id="page_complete">
+            <script>
+                console.log('Page complete');
+            </script>
+            </body>
+            </html>
+          

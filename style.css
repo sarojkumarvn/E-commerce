@@ -146,6 +146,21 @@ body {
   opacity: 0.5;
 }
 
+
+
+.items {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+padding: 50px;
+gap: 40px;
+width: 100%;
+
+}
+
+
 .products {
   display: flex;
   justify-content: center;
@@ -156,7 +171,7 @@ body {
   flex-direction: column;
 }
 
-.card {
+.product-card {
   width: 250px;
   background: white;
   border-radius: 10px;
@@ -165,27 +180,27 @@ body {
   text-align: center;
   padding: 20px;
 }
-.card img {
+.product-card img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-bottom: 15px;
 }
-.card h2 {
+.product-card h2 {
   font-size: 18px;
   margin: 10px 0;
 }
-.card p {
+.prodyct-card p {
   font-size: 14px;
   color: #666;
   margin-bottom: 15px;
 }
-.card .price {
+.product-card h3 {
   font-size: 20px;
   font-weight: bold;
   color: #007bff;
 }
-.card button {
+.product-card button {
   background: #283b4fc7;
   color: white;
   border: none;
@@ -195,20 +210,12 @@ body {
   cursor: pointer;
   margin-top: 10px;
 }
-.card button:hover {
+.product-card button:hover {
   background: #0056b3;
 }
 
-.items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 63px;
-  margin-top: 70px;
-}
 
+/* for the secondary items */
 .items-second {
   display: flex;
   justify-content: center;

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ElectroStore Navbar</title>
+    <link rel="stylesheet" href="Electronics.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">E-Shop</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Smartphones</a></li>
+        <li><a href="#">Laptops</a></li>
+        <li><a href="#">Tablets</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Deals</a></li>
+      </ul>
+      <div class="sort-list">
+        <label for="sort-list">
+            <select name="pricing" id="value-options"  >
+                <option value="default">Default</option>
+                <option value="high-to-low">High to low</option>
+                <option value="low-to-high">Low to High</option>
+                <option value="relevance">Relevance</option>
+            </select>
+        </label>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products..." />
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </nav>
+    <section class="Electronic">
+      <section class="left-side">
+        <div class="filters-container">
+          <h2 class="filters-heading">Filters</h2>
+
+          <div class="filter-section">
+            <h3 class="section-heading">CATEGORIES</h3>
+            <ul class="categories-list">
+              <li>Electronic Appliences</li>
+            </ul>
+          </div>
+
+          <div class="filter-section">
+            <h3 class="section-heading">PRICE</h3>
+            <div class="price-range">
+              <input
+                type="range"
+                class="price-slider"
+                min="0"
+                max="90000"
+                step="1000"
+              />
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <div class="assured-checkbox">
+              <input type="checkbox" id="assured" />
+              <label for="assured">Assured</label>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <h3 class="section-heading">BRAND</h3>
+            <input
+              type="text"
+              class="brand-search"
+              placeholder="Search Brand"
+            />
+
+            <div class="brand-list">
+              <div class="brand-item">
+                <input type="checkbox" id="sony" />
+                <label for="sony">SONY</label>
+              </div>
+              <div class="brand-item">
+                <input type="checkbox" id="lg" />
+                <label for="lg">LG</label>
+              </div>
+              <div class="brand-item">
+                <input type="checkbox" id="samsung" />
+                <label for="samsung">SAMSUNG</label>
+              </div>
+              <div class="brand-item">
+                <input type="checkbox" id="mi" />
+                <label for="mi">Mi</label>
+              </div>
+              <div class="brand-item">
+                <input type="checkbox" id="tcl" />
+                <label for="tcl">TCL</label>
+              </div>
+              <div class="brand-item">
+                <input type="checkbox" id="hisense" />
+                <label for="hisense">Hisense</label>
+              </div>
+            </div>
+
+            <div class="more-brands">93 MORE</div>
+          </div>
+          <div class="customer-ratings">
+            <ul>
+                <li><input type="checkbox">4 ❇️&above</li>
+                <li><input type="checkbox">3 ❇️&above</li>
+               
+            </ul>
+
+          </div>
+        </div>
+      </section>
+      <section class="right-side">
+        <div class="product-container">
+            <!-- to be added in js -->
+        </div>
+
+      </section>
+    </section>
+    <script src="Electronics.js"></script>
+  </body>
+</html>
