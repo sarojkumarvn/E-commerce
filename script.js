@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Accessing the first card section by object
 
 let productParentDiv = document.querySelector(".items");
@@ -114,11 +115,32 @@ async function getallsecondProducts() {
     let response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
     _secondProductsData = data; // Assign the fetched data to the array instead of pushing
+=======
+const productsParentDiv = document.querySelector(".items");
+const allProductsBtn = document.querySelector("#all-products-btn");
+const productsLoader = document.querySelector(".products-loader");
+
+let isAllProductsOpen = false;
+
+let _productsData = [];
+getAllProductsData().then(() => {
+  renderProductsFn();
+});
+
+async function getAllProductsData() {
+  try {
+    productsLoader.style.display = "block";
+    const response = await fetch("https://fakestoreapi.com/products");
+    const data = await response.json();
+    _productsData.push(...data);
+    productsLoader.style.display = "none";
+>>>>>>> 06a249f37647e636040c20ae8a4c8c4e5db56e9b
   } catch (error) {
     console.log(error);
   }
 }
 
+<<<<<<< HEAD
 function renderSecondProductsFn() {
   const secondProductsHTML = _secondProductsData.map((e, index) => {
     if (index > 7 && !isproductsloaded) {
@@ -129,11 +151,25 @@ function renderSecondProductsFn() {
     <h2>${e.title}</h2>
           <p>${e.description.slice(0, 100)}...</p>
            <div class="price">$${e.price}</div>
+=======
+function renderProductsFn() {
+  const productsHTML = _productsData.map((elem, index) => {
+    if (index > 3 && !isAllProductsOpen) {
+      return "";
+    }
+
+    return `  <div class="card">
+          <img src="${elem.image}" alt="Smartphone Icon" />
+           <h2>${elem.title}</h2>
+           <p>${elem.description.slice(0, 100)}...</p>
+           <div class="price">${elem.price}</div>
+>>>>>>> 06a249f37647e636040c20ae8a4c8c4e5db56e9b
            <button>Add to Cart</button>
          </div>
     `;
   });
 
+<<<<<<< HEAD
   secondCard.innerHTML = secondProductsHTML.join("");
 }
 
@@ -339,4 +375,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   renderSecondProducts();
+=======
+  productsParentDiv.innerHTML = productsHTML.join("");
+}
+
+allProductsBtn.addEventListener("click", () => {
+  isAllProductsOpen = !isAllProductsOpen;
+
+  if (isAllProductsOpen) {
+    allProductsBtn.textContent = "Show Less";
+  } else {
+    allProductsBtn.textContent = "All Products";
+  }
+  console.log(isAllProductsOpen);
+  renderProductsFn();
+>>>>>>> 06a249f37647e636040c20ae8a4c8c4e5db56e9b
 });
