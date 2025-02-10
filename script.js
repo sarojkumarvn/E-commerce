@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 // Accessing the first card section by object
 
 let productParentDiv = document.querySelector(".items");
 let allProductsBtn = document.querySelector("#all-products-btn");
 let loadMore = document.querySelector(".load-more");
-let isAllProductsOpen = true;
+let isAllProductsOpen = false ;
 
 const allProducts = [
   {
@@ -97,10 +96,10 @@ allProductsBtn.addEventListener("click", () => {
   isAllProductsOpen = !isAllProductsOpen;
   renderProducts();
 
-  if (isAllProductsOpen) {
-    allProductsBtn.textContent = "Hide products";
-  } else {
+  if (!isAllProductsOpen) {
     allProductsBtn.textContent = "Load More Products";
+  } else {
+    allProductsBtn.textContent = "Hide Products";
   }
 });
 
@@ -115,32 +114,11 @@ async function getallsecondProducts() {
     let response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
     _secondProductsData = data; // Assign the fetched data to the array instead of pushing
-=======
-const productsParentDiv = document.querySelector(".items");
-const allProductsBtn = document.querySelector("#all-products-btn");
-const productsLoader = document.querySelector(".products-loader");
-
-let isAllProductsOpen = false;
-
-let _productsData = [];
-getAllProductsData().then(() => {
-  renderProductsFn();
-});
-
-async function getAllProductsData() {
-  try {
-    productsLoader.style.display = "block";
-    const response = await fetch("https://fakestoreapi.com/products");
-    const data = await response.json();
-    _productsData.push(...data);
-    productsLoader.style.display = "none";
->>>>>>> 06a249f37647e636040c20ae8a4c8c4e5db56e9b
   } catch (error) {
     console.log(error);
   }
 }
 
-<<<<<<< HEAD
 function renderSecondProductsFn() {
   const secondProductsHTML = _secondProductsData.map((e, index) => {
     if (index > 7 && !isproductsloaded) {
@@ -151,25 +129,11 @@ function renderSecondProductsFn() {
     <h2>${e.title}</h2>
           <p>${e.description.slice(0, 100)}...</p>
            <div class="price">$${e.price}</div>
-=======
-function renderProductsFn() {
-  const productsHTML = _productsData.map((elem, index) => {
-    if (index > 3 && !isAllProductsOpen) {
-      return "";
-    }
-
-    return `  <div class="card">
-          <img src="${elem.image}" alt="Smartphone Icon" />
-           <h2>${elem.title}</h2>
-           <p>${elem.description.slice(0, 100)}...</p>
-           <div class="price">${elem.price}</div>
->>>>>>> 06a249f37647e636040c20ae8a4c8c4e5db56e9b
            <button>Add to Cart</button>
          </div>
     `;
   });
 
-<<<<<<< HEAD
   secondCard.innerHTML = secondProductsHTML.join("");
 }
 
@@ -206,188 +170,14 @@ submit_button.addEventListener("click", () => {
 
 let btn_electronics = document.querySelector(".electronics");
 
+
+btn_electronics.addEventListener("click",()=>{
+  console.log("clicked")
+})
+
 btn_electronics.addEventListener("click", redirectPage); //redirecting into the electronics page
 // to redirect the pages
 function redirectPage(event) {
   event.preventDefault();
   window.location.href = "Electronics.html";
 }
-
-
-
-
-let productcardParent = document.querySelector(".product-container");
-
-let productsList = [
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 2,
-    title: "Vivo IQ00 1600 pro",
-    image: "samsung.webp",
-    description: "Built for Rough Gaming",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-  {
-    id: 1,
-    title: "Samsung Galaxy S25 Ultra",
-    image: "samsung.webp",
-    description: "Looks sleek, built tough",
-    price: "1,25,000",
-    button: "Add to Cart",
-  },
-];
-
-// function renderSecondProducts() {
-//   productcardParent.innerHTML = productsList
-//     .map((elem) => {
-//       return `
-//       <div class="product_card_secondpage">
-//       <img src="${elem.image}" alt="">
-//       <h3>${elem.title}</h3>
-//       <p>${elem.description}</p>
-//       <div class="product-price">${elem.price}</div>
-//       <button>Add to cart</button>
-//     </div>
-//     `;
-//     })
-//     .join("");
-// }
-
-
-// renderSecondProducts();
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  let productcardParent = document.querySelector(".product-container");
-
-  if (!productcardParent) {
-    console.error("Error: .product-container not found in the DOM.");
-    return;
-  }
-
-  function renderSecondProducts() {
-    productcardParent.innerHTML = productsList
-      .map((elem) => {
-        return `
-        <div class="product_card_secondpage">
-          <img src="${elem.image}" alt="">
-          <h3>${elem.title}</h3>
-          <p>${elem.description}</p>
-          <div class="product-price">${elem.price}</div>
-          <button>Add to cart</button>
-        </div>
-        `;
-      })
-      .join("");
-
-    console.log("Products rendered:", productcardParent.innerHTML); // Debugging
-  }
-
-  renderSecondProducts();
-=======
-  productsParentDiv.innerHTML = productsHTML.join("");
-}
-
-allProductsBtn.addEventListener("click", () => {
-  isAllProductsOpen = !isAllProductsOpen;
-
-  if (isAllProductsOpen) {
-    allProductsBtn.textContent = "Show Less";
-  } else {
-    allProductsBtn.textContent = "All Products";
-  }
-  console.log(isAllProductsOpen);
-  renderProductsFn();
->>>>>>> 06a249f37647e636040c20ae8a4c8c4e5db56e9b
-});

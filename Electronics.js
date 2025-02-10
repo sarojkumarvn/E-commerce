@@ -158,8 +158,5 @@ valueOptions.addEventListener("change", () => {
       `;
     })
     .join(""); 
-
-
-
   
 });
