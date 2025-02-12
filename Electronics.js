@@ -67,7 +67,7 @@ let productsList = [
   },
   {
     id: 9,
-    title: "Samsung Galaxy S25 Ultra",
+    title: "One plus nord",
     image: "image2/samsung.webp",
     description: "Looks sleek, built tough",
     price: "12,000",
@@ -75,7 +75,7 @@ let productsList = [
   },
   {
     id: 10,
-    title: "Samsung Galaxy S25 Ultra",
+    title: "Realme 12 pro 5G",
     image: "image2/samsung.webp",
     description: "Looks sleek, built tough",
     price: "65,000",
@@ -83,7 +83,7 @@ let productsList = [
   },
   {
     id: 11,
-    title: "Samsung Galaxy S25 Ultra",
+    title: "Asus zenphone",
     image: "image2/samsung.webp",
     description: "Looks sleek, built tough",
     price: "42,990",
@@ -91,7 +91,7 @@ let productsList = [
   },
   {
     id: 12,
-    title: "Samsung Galaxy S25 Ultra",
+    title: "Motrola fusion",
     image: "image2/samsung.webp",
     description: "Looks sleek, built tough",
     price: "93,000",
@@ -100,29 +100,28 @@ let productsList = [
 ];
 
 //making a function in which we can render the products
-
 function renderSecondProducts() {
   productcardParent.innerHTML = productsList
-    .map((elem) => {
+    .map((elem, index) => {
       return `
       <div class="product_card_secondpage">
       <img src="${elem.image}" alt="">
       <h3>${elem.title}</h3>
       <p>${elem.description}</p>
       <div class="product-price">${elem.price}</div>
-      <button>Add to cart</button>
+      <button class="add-to-cart" product_index = "${index}">Add to cart</button>
     </div>
     `;
     })
     .join("");
 }
 
-renderSecondProducts(productsList);
+renderSecondProducts(productsList); //rendering the products
 
 let valueOptions = document.getElementById("value-options");
 
 valueOptions.addEventListener("change", () => {
-  let sortedProducts = [...productsList];
+  let sortedProducts = [...productsList]; //adding productlist to sortedproducts
 
   if (valueOptions.value === "default") {
     renderSecondProducts(); // Ensure this function properly restores the original layout
@@ -144,19 +143,42 @@ valueOptions.addEventListener("change", () => {
         parseFloat(b.price.replace(/,/g, ""))
     );
   }
-  
-  productcardParent.innerHTML = sortedProducts
-    .map((elem) => {
+
+  productcardParent.innerHTML = sortedProducts // Storing the sorted products into the prent-card of product
+    .map((elem, index) => {
+      // mapping and getting each element
       return `
         <div class="product_card_secondpage">
           <img src="${elem.image}" alt="">
           <h3>${elem.title}</h3>
           <p>${elem.description}</p>
           <div class="product-price">${elem.price}</div>
-          <button>Add to cart</button>
+          <button class ="add-to-cart" product_index="${index}">Add to cart</button>
         </div>
       `;
     })
-    .join(""); 
-  
+    .join("");
+});
+
+//adding eventlistener to each add-to-cart button
+
+let product_arr = [];
+document.addEventListener("DOMContentLoaded", function () {
+  // let product_arr = JSON.parse(localStorage.getItem("product_arr")) || [];
+
+  document.querySelectorAll(".add-to-cart").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      let productIndex = event.target.getAttribute("product_index"); //targeting product index
+      let product = productsList[productIndex];
+      product_arr.push({
+        title: product.title,
+        image: product.image,
+        price: product.price,
+      });
+      let storedValue = JSON.stringify(product_arr);
+      localStorage.setItem("product_arr", storedValue);
+      console.log(product_arr);
+      window.location.href = "Addcart.html";
+    });
+  });
 });

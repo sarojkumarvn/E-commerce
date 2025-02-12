@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - E-shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cart-header {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2em;
+            color: #333;
+        }
+
+        .cart-items {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            justify-content: space-between;
+        }
+
+        .item-image {
+            width: 80px;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .item-details {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .item-name {
+            font-size: 1.2em;
+        }
+
+        .item-price {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background-color: #f8f8f8;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+        }
+
+        .remove-item {
+            color: #999;
+            cursor: pointer;
+        }
+
+        .cart-summary {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="cart-header">Your Shopping Cart</h1>
+        
+        <div class="cart-items">
+            <div class="cart-item-secondary">
+                <!-- to be added in js  -->
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-item">
+                <span>Subtotal:</span>
+                <span class="total-price">0.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+<script src="Addcart.js"></script>
+</body>
+</html>

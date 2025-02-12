@@ -81,6 +81,11 @@ body {
   margin-left: 10px;
   overflow-y: auto;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
 }
 
 .filters-container {
@@ -88,6 +93,8 @@ body {
   padding: 20px;
   width: 250px;
   border-right: 1px solid #eee;
+  height: 90%;
+  overflow: auto;
 }
 
 .filters-heading {
@@ -353,3 +360,11 @@ label {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 700;
 }
+
+
+.home{
+  border: none;
+  background-color: white;
+  font-size: 16px;
+}
+

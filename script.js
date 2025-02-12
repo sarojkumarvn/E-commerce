@@ -181,3 +181,13 @@ function redirectPage(event) {
   event.preventDefault();
   window.location.href = "Electronics.html";
 }
+
+
+
+//redirecting when the sign in button is clicked
+let sign_in = document.querySelector(".sign_in")
+
+sign_in.addEventListener("click",(event)=>{
+event.preventDefault()
+window.location.href = "login.html"
+})
