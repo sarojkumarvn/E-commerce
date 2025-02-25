@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Offer - Your E-commerce</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background: #000000;
+        min-height: 100vh;
+        color: white;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .offer-header {
+        text-align: center;
+        padding: 60px 0;
+      }
+
+      .offer-header h1 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        color: #ffffff;
+        letter-spacing: 2px;
+      }
+
+      .offer-header p {
+        font-size: 1.2em;
+        color: #cccccc;
+      }
+
+      .offer-content {
+        display: flex;
+        gap: 30px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .product-image {
+        flex: 1;
+        min-width: 300px;
+        background: #111111;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s;
+      }
+
+      .product-image:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .claim-form {
+        flex: 1;
+        min-width: 300px;
+        background: #111111;
+        padding: 30px;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .claim-form:hover {
+        transform: translateY(-5px);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 12px;
+        background: #222222;
+        border: 1px solid #333333;
+        border-radius: 5px;
+        font-size: 16px;
+        color: white;
+      }
+
+      .form-group input:focus {
+        border-color: #4a90e2;
+        outline: none;
+      }
+
+      .claim-button {
+        background: #4a90e2;
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: background 0.3s;
+        width: 100;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .claim-button:hover {
+        background: #357abd;
+      }
+
+      .terms {
+        font-size: 0.9em;
+        color: #888888;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .offer-header h1 {
+          font-size: 2.5em;
+        }
+
+        .offer-content {
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="offer-header">
+        <h1>50% OFF SALE!</h1>
+        <p>Limited Time Offer - Claim Your Exclusive Discount</p>
+      </header>
+
+      <div class="offer-content">
+        <div class="product-image">
+          <img src="claim.jpg" alt="Special Offer Product" />
+        </div>
+
+        <form class="claim-form">
+          <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input
+              type="tel"
+              id="phone"
+              required
+              placeholder="Enter your phone number"
+            />
+          </div>
+
+          <button type="submit" class="claim-button">CLAIM MY DISCOUNT</button>
+          <p class="terms">
+            By clicking above, you agree to our terms of service
+          </p>
+        </form>
+      </div>
+    </div>
+    <script>
+      let form = document.querySelector(".claim-form");
+
+      
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let name = document.querySelector("#name").value;
+        let email = document.querySelector("#email").value;
+        let phone = document.querySelector("#phone").value;
+        let claimBtn = document.querySelector(".claim-button");
+        claimBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+           
+                alert("Offer claimed successfully");
+                window.location.href = "../index.html";
+           
+        })
+       
+      });
+    </script>
+  </body>
+</html>

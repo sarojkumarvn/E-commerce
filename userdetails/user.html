@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Shipping Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+            color: black;
+
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .payment-notice {
+            color: black;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .name-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        @keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: slideFadeIn 1s ease-out;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shipping Information</h1>
+        
+        <div class="payment-notice">
+            Note: Add your shipping address here so that we can deliver your order .
+        </div>
+
+        <form class="shipping-form">
+            <div class="name-group">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" class="firstName" name="firstName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="middleName">Middle Name (Optional)</label>
+                    <input type="text" class="middleName" name="middleName">
+                </div>
+                
+                <div class="form-group">
+                    <label for="surname">Surname *</label>
+                    <input type="text" class="surname" name="surname" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nationality">Nationality *</label>
+                <select class="nationality" name="nationality" required>
+                    <option value="">Select Nationality</option>
+                    <option>United States</option>
+                    <option>India</option>
+                    <option>United Kingdom</option>
+                    <option>Canada</option>
+                    <option>Australia</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" class="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" class="phone" name="phone" pattern="[0-9]{10}" required>
+                <small>Format: 1234567890</small>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address *</label>
+                <textarea class="address" name="address" rows="4" required></textarea>
+            </div>
+
+            <button  class="continue-btn">Continue to Shopping</button>
+        </form>
+    </div>
+    <script src="user.js"></script>
+</body>
+</html>

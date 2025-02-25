@@ -5,18 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Shop</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "LcdmFRnz-xmBoFk-S",
+      });
+   })();
+</script>
   </head>
   <body>
     <header class="navbar">
       <h2>E-Shop</h2>
       <nav>
-        <a href="#">Home</a>
-        <a href="#">Categories</a>
-        <a href="#">Products</a>
-        <a href="#">Special Offers</a>
-        <a href="#">Testimonials</a>
-        <a href="#">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#product">Products</a>
+        <a href="#specialoffers">Special Offers</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
       </nav>
+      
     </header>
     <section class="hero">
       <h1>Discover <strong>Amazing Products</strong></h1>
@@ -31,8 +42,9 @@
           prices. Shop now and transform your lifestyle.
         </p>
         <div class="buttons">
-          <button class="primary">Shop Now</button>
-          <button class="secondary">Explore Categories</button>
+          <a href="#popular-products2" class="primary" style="text-decoration: none;">shop now</a>
+          <!-- <button class="secondary">Explore Categories</button> -->
+          <a href="#container" class="secondary">Explore Categories</a>
         </div>
         <div class="stats">
           <div>
@@ -63,7 +75,7 @@
       </div>
     </section>
 
-    <section class="products">
+    <section class="products" id="product">
       <div class="featured">
         <h2 style="margin-bottom: -12px">Featured Products</h2>
         <br />
@@ -71,15 +83,16 @@
       </div>
       <div class="items">
         <!-- to be added in  -->
+         
       </div>
       <div class="products-loader">
         <div class="products-loader-spiner"></div>
       </div>
       <div class="all-products">
-        <button id="all-products-btn">All products</button>
+        <button id="all-products-btn">Load more products</button>
       </div>
     </section>
-
+<section id="container">
     <div class="container">
       <h1>Shop by Categories</h1>
       <p
@@ -103,34 +116,37 @@
         <div class="category-card home">
           <h3>Home & Living</h3>
           <p>Beautiful home essentials</p>
-          <a href="#" class="btn">Shop Now</a>
+          <a href="#" class="btn decor">Shop Now</a>
         </div>
 
         <div class="category-card clothing">
           <h3>Fashion</h3>
           <p>Tensdy clothing and accessories</p>
-          <a href="#" class="btn">Shop Now</a>
+          <a href="#" class="btn clothing ">Shop Now</a>
         </div>
 
         <div class="category-card sports">
           <h3>Sports</h3>
           <p>Equipment and accessories</p>
-          <a href="#" class="btn">Shop Now</a>
+          <a href="#" class="btn sports">Shop Now</a>
         </div>
 
         <div class="category-card books">
           <h3>Books</h3>
           <p>Best selling titles</p>
-          <a href="#" class="btn">Shop Now</a>
+          <a href="#" class="btn books">Shop Now</a>
         </div>
 
         <div class="category-card beauty">
           <h3>Beauty</h3>
           <p>Comercles and skincare</p>
-          <a href="#" class="btn">Shop Now</a>
+          <a href="#" class="btn beauty">Shop Now</a>
         </div>
       </div>
     </div>
+  </section>
+
+    <section id="popular-products2">
 
     <div class="popular-products">
       <div class="des-sec">
@@ -139,17 +155,17 @@
         <p style="margin-top: -31px;">Handpicked products for you</p>
       </div>
 
-      <!--  to do -->
       <div class="items-second">
         <!-- to b added in js  -->
       </div>
       <div class="load-products">
-        <button class="load-more">load More Products</button>
+        <button class="load-more">Load more</button>
       </div>
     </div>
+  </section>
 
     <!-- Special Offers Section -->
-    <section class="special-offers">
+    <section  id="specialoffers"  class="special-offers">
       <div class="offers-container">
         <h2 class="section-title">Special Offers</h2>
         <p class="section-subtitle">
@@ -163,7 +179,7 @@
               <span class="offer-badge">Buy 2 Get 1 Free</span>
               <h3 class="offer-title">Fashion Deals</h3>
               <p class="offer-description">On selected Fashion items</p>
-              <a href="#" class="offer-btn">Shop Now</a>
+              <button class="offer-btn  shop_btn">Shop Now</button>
             </div>
           </div>
 
@@ -173,7 +189,8 @@
               <span class="offer-badge">Premium Collection</span>
               <h3 class="offer-title">Luxury Edit</h3>
               <p class="offer-description">Exclusive premium selections</p>
-              <a href="#" class="offer-btn">Explore Now</a>
+              <button class="offer-btn explore_btn">Explore Now</button>
+
             </div>
           </div>
 
@@ -183,70 +200,77 @@
               <span class="offer-badge">Free Shipping</span>
               <h3 class="offer-title">Limited Time Only</h3>
               <p class="offer-description">On orders over $99</p>
-              <a href="#" class="offer-btn">Claim Offer</a>
+              <a href="../claimoffer/offer.html" class="offer-btn">Claim Offer</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="testimonials">
+    <section id="testimonials" class="testimonials">
       <div class="container-customer">
         <h2 class="section-title">What Our Customers Say</h2>
         <p class="section-subtitle">Don't just take our word for it</p>
-
-        <div class="testimonials-grid">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-card">
-            <div class="customer-header">
-              <div class="customer-badge">so</div>
-              <div class="customer-info">
-                <h3 class="customer-name">Saroj</h3>
-                <div class="rating">★★★★★</div>
+    
+        <div class="testimonial-slider">
+          <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="customer-header">
+                <div class="customer-badge">S</div>
+                <div class="customer-info">
+                  <h3 class="customer-name">Saroj</h3>
+                  <div class="rating">★★★★★</div>
+                </div>
               </div>
+              <p class="testimonial-text">
+                Amazing experience shopping here! The products are high-quality
+                and the customer service is exceptional. Will definitely be coming
+                back!
+              </p>
+              <div class="verified-badge">Verified Buyer</div>
             </div>
-            <p class="testimonial-text">
-              Amazing experience shopping here! The products are high-quality
-              and the customer service is exceptional. Will definitely be coming
-              back!
-            </p>
-            <div class="verified-badge">Verified Buyer</div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="testimonial-card">
-            <div class="customer-header">
-              <div class="customer-badge">So</div>
-              <div class="customer-info">
-                <h3 class="customer-name">Saroj</h3>
-                <div class="rating">★★★★★</div>
+    
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="customer-header">
+                <div class="customer-badge">J</div>
+                <div class="customer-info">
+                  <h3 class="customer-name">John</h3>
+                  <div class="rating">★★★★★</div>
+                </div>
               </div>
+              <p class="testimonial-text">
+                The delivery was super fast and the product quality exceeded my
+                expectations. Highly recommend!
+              </p>
+              <div class="verified-badge">Verified Buyer</div>
             </div>
-            <p class="testimonial-text">
-              The delivery was super fast and the product quality exceeded my
-              expectations. Highly recommend!
-            </p>
-            <div class="verified-badge">Verified Buyer</div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="testimonial-card">
-            <div class="customer-header">
-              <div class="customer-badge">So</div>
-              <div class="customer-info">
-                <h3 class="customer-name">Saroj</h3>
-                <div class="rating">★★★★★</div>
+    
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="customer-header">
+                <div class="customer-badge">A</div>
+                <div class="customer-info">
+                  <h3 class="customer-name">Alex</h3>
+                  <div class="rating">★★★★★</div>
+                </div>
               </div>
+              <p class="testimonial-text">
+                Best online shopping experience ever! The website is user-friendly
+                and the prices are unbeatable.
+              </p>
+              <div class="verified-badge">Verified Buyer</div>
             </div>
-            <p class="testimonial-text">
-              Best online shopping experience ever! The website is user-friendly
-              and the prices are unbeatable.
-            </p>
-            <div class="verified-badge">Verified Buyer</div>
+           
+           
           </div>
+         
         </div>
       </div>
     </section>
+
+
 
     <section class="newsletter-section">
       <div class="newsletter-container">
@@ -291,7 +315,7 @@
       </div>
     </section>
 
-    <section class="contact-section">
+    <section id="contact" class="contact-section">
       <div class="contact-container">
         <h2 class="section-title">Get in Touch</h2>
         <p class="section-subtitle">
@@ -304,22 +328,23 @@
           <div class="contact-info">
             <div class="info-item">
               <h3>Phone</h3>
-              <p>+1 (555) 123-4567</p>
+              <p>06782-268294</p>
             </div>
 
             <div class="info-item">
               <h3>Email</h3>
-              <p>support@example.com</p>
+              <p>ecom@gmail.com</p>
             </div>
 
             <div class="info-item">
               <h3>Address</h3>
-              <p>123 Commerce St<br />City, State 12345</p>
+              <p>123 Commerce St<br />Balasore // Odisha</p>
             </div>
           </div>
 
           <!-- Contact Form -->
-          <form class="contact-form">
+        
+          <form class="contact-form">   
             <div class="form-row">
               <div class="input-group">
                 <input type="text" id="firstName" required />

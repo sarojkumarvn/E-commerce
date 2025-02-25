@@ -3,105 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Crazy Animations Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <link rel="stylesheet" href="payment.css">
+    <title>Secure Payment | E-Commerce</title>
+    <link rel="stylesheet" href="../payment/payment.css">
 </head>
-
 <body>
-    <header class="checkout-header">
-        <div class="logo" id="logo">🔥E-Com</div>
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-        </div>
-    </header>
-
-    <div class="container">
-        <!-- Payment Form -->
+    <div class="payment-container">
         <div class="payment-form">
-            <div class="card-wrapper">
-                <div class="card-front floating">
-                    <div class="card-logo pulse">
-                        <i class="fab fa-cc-visa"></i>
-                    </div>
-                    <div class="card-number">#### #### #### ####</div>
-                    <div class="card-info">
-                        <span class="card-name">JOHN DOE</span>
-                        <span class="card-expiry">MM/YY</span>
-                    </div>
-                </div>
+            <div class="form-header">
+                <h1>Secure Payment</h1>
+                <p>Complete your purchase with confidence</p>
             </div>
 
-            <form id="paymentForm">
-                <div class="form-group">
-                    <input type="text" id="cardNumber" required>
-                    <label for="cardNumber">Card Number</label>
-                    <div class="card-icons">
-                        <i class="fab fa-cc-visa"></i>
-                        <i class="fab fa-cc-mastercard"></i>
-                        <i class="fab fa-cc-amex"></i>
+            <form id="payment-form">
+                <div class="input-group">
+                    <label>Card Number</label>
+                    <input type="text" class="input-field" placeholder="4242 4242 4242 4242" required>
+                </div>
+
+                <div class="card-details">
+                    <div class="input-group" style="flex: 2;">
+                        <label>Expiration Date</label>
+                        <input type="text" class="input-field" placeholder="MM/YY" required>
+                    </div>
+                    <div class="input-group" style="flex: 1;">
+                        <label>CVV</label>
+                        <input type="text" class="input-field" placeholder="CVV" required>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <input type="text" id="cardName" required>
-                    <label for="cardName">Cardholder Name</label>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" id="expiryDate" required>
-                        <label for="expiryDate">Expiration Date</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="cvv" required>
-                        <label for="cvv">CVV</label>
-                        <i class="fas fa-question-circle" id="cvvHelp"></i>
-                    </div>
+                <div class="input-group">
+                    <label>Cardholder Name</label>
+                    <input type="text" class="input-field" placeholder="John Doe" required>
                 </div>
 
                 <button type="submit" class="pay-button">
-                    <span>Pay Now</span>
-                    <div class="shine"></div>
+                    
                 </button>
             </form>
+
+            <div class="security-note">
+                🔒 256-bit SSL Encryption | Secure Payment Processing
+            </div>
         </div>
 
-        <!-- Order Summary -->
-        <div class="order-summary slide-in">
-            <h3>Your Order</h3>
-            <div class="order-items">
-                <div class="order-item">
-                    <div class="item-image bounce">
-                        <img src="product.jpg" alt="Product">
-                    </div>
-                    <div class="item-details">
-                        <h4>Crazy Animation Package</h4>
-                        <p>Quantity: 1</p>
-                        <p>$199.99</p>
-                    </div>
+        <div class="order-summary">
+            <div class="summary-header">
+                <h2>Order Summary</h2>
+            </div>
+            
+            <div class="summary-item">
+                <span>Subtotal</span>
+                <span class="subtotal"></span>
+            </div>
+            <div class="summary-item">
+                <span>Shipping</span>
+                <span>Free</span>
+            </div>
+            <div class="summary-item">
+                <span>Tax</span>
+                <span class="tax"></span>
+            </div>
+            
+            <div class="summary-item total">
+                <span>Total</span>
+                <span class="total_price">$149.99</span>
+            </div>
+
+            <div class="security-features">
+                <div class="security-item">
+                    <span>✓ 100% Secure Checkout</span>
+                </div>
+                <div class="security-item">
+                    <span>✓ Buyer Protection</span>
+                </div>
+                <div class="security-item">
+                    <span>✓ Money Back Guarantee</span>
                 </div>
             </div>
-            <div class="total">
-                <span>Total:</span>
-                <span class="price">$219.98</span>
-            </div>
         </div>
     </div>
+   
+<div id="custom-alert" class="custom-alert">
+    <div class="alert-content">
+        <span id="alert-message"></span>
+        <button id="close-alert" class="close-btn">OK</button>
+        <button id="track-order" class="track-btn">Track order</button>
+    </div>
+</div>
 
-    <!-- Confirmation Modal -->
-    <div class="confirmation-modal">
-        <div class="modal-content">
-            <div class="checkmark">
-                <div class="checkmark__circle"></div>
-                <div class="checkmark__check"></div>
-            </div>
-            <h2>Payment Successful!</h2>
-            <p>Your order is being processed</p>
-            <button class="close-modal">Continue Shopping</button>
-        </div>
-    </div>
-    <script src="payment.js"></script>
+
+    <script src="../payment/payment.js"></script>
 </body>
 </html>

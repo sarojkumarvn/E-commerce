@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - Shop Smarter</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f6fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: slideDown 0.5s ease;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-status {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .status-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .status-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .status-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .status-circle.active {
+            background: var(--secondary);
+            color: white;
+            transform: scale(1.1);
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-bar {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            height: 4px;
+            background: var(--light);
+            width: 100%;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--secondary);
+            width: 20%; /* Blue progress bar up to Order Placed */
+            transition: width 0.5s ease;
+        }
+
+        .help-section {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .help-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .cancel-order {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .cancel-order:hover {
+            transform: scale(1.05);
+        }
+        @keyframes slideFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: slideFadeIn 1s ease-out;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Order Tracking</h1>
+            <p>Check your order status below</p>
+        </div>
+
+        <div class="order-status">
+            <h2>Order-id #2547883454</h2>
+            <div class="status-steps">
+                <div class="status-bar"><div class="progress-bar"></div></div>
+                <div class="status-step">
+                    <div class="status-circle active">✓</div>
+                    <span>Order Placed</span>
+                </div>
+                <div class="status-step">
+                    <div class="status-circle"></div>
+                    <span>In Progress</span>
+                </div>
+                <div class="status-step">
+                    <div class="status-circle"></div>
+                    <span>Shipped</span>
+                </div>
+                <div class="status-step">
+                    <div class="status-circle"></div>
+                    <span>Out for Delivery</span>
+                </div>
+                <div class="status-step">
+                    <div class="status-circle"></div>
+                    <span>Delivered</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="help-section" onclick="toggleHelp()">
+            <h3>Need Help? ▼</h3>
+            <div class="help-content" id="helpContent">
+                <p>Contact our support team:</p>
+                <ul>
+                    <li>Email: support@shopsmarter.com</li>
+                    <li>Phone: 1-800-123-4567</li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="cancel-order">Cancel Order</button>
+    </div>
+    <script src="track.js"></script>
+</body>
+</html>
