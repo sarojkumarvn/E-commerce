@@ -91,7 +91,7 @@ let productsList = [
   },
   {
     id: 12,
-    title: "Motorola Fusion",
+    title: "Motorola Fusion pro",
     image: "image2/motrolaedge50.jpg",
     description: "Stylish design with great battery",
     price: "98000",
